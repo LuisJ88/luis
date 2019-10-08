@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    double X[]={4,6,9,14,18,21,23,25}, Y[]={1644,3266,6486,12576,18038,21168,22705,23662}, XX[]={},XY[]={}, SumaX=0,SumaY=0,SumaXX=0,SumaXY=0,PromX,PromY,PromXX,A1,A0,Z;
+    for (int i=0; i<8;i++)
+    {
+        SumaX=SumaX+X[i];
+        SumaY=SumaY+Y[i];
+        XX[i]=X[i]*X[i];
+        SumaXX=SumaXX+XX[i];
+        //cout << "\nXX = " << XX[i];
+        XY[i]=X[i]*Y[i];
+        SumaXY=SumaXY+XY[i];
+    }
+    cout << "Suma en X= "<<SumaX<<" ,Suma en Y= "<<SumaY<<",Suma en XY="<<SumaXY;
+    PromX=SumaX/8;
+    PromY=SumaY/8;
+    PromXX=SumaXX/8;
+    cout << "\nPX="<<PromX<<"\nPY="<<PromY<<"\nPXX="<<PromXX;
+    
+    A1=((8*SumaXY)-(SumaX*SumaY))/(8*SumaXX-(SumaX*SumaX));
+    A0=PromY-(A1*PromX);
+    cout<<"\nA1= "<<A1<<"\nA0="<<A0;
+    cout<<"\nY = "<<A0<<" + "<<A1<<"X";
+    Z=A0+(A1*15);
+    cout << "\nLa función evaluada en 15 cm es: " << Z;
+}
